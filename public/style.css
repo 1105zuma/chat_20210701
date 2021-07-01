@@ -3,6 +3,7 @@
     box-sizing: border-box;
 }
 h1 {
+    font-size: 5vw;
     text-align: center;
     background-color: #888;
     color: #fff;
@@ -15,7 +16,7 @@ button
 {
     border:1px solid #ccc;
     font-size:5vw;
-    height:10vw;
+    height:7vw;
     padding:0 5vw;
     outline: 0;
     line-height:5vw;
@@ -32,7 +33,7 @@ button
 }
 #chats
 {
-    font-size:5vw;
+    font-size:3vw;
     margin:0;
     padding: 0;
     text-indent: 0;
