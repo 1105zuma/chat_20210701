@@ -21,20 +21,29 @@ nameForm.addEventListener('submit', function(event){
 
   event.preventDefault();
 })
+form.addEventListener('submit', function(event){
+  if(input.value!==''){
+    const msg = {msg: input.value, name: username};
+    socketio.emit('message', msg);
+    input.value='';
+  }
+  event.preventDefault();
+})
 
 socketio.on('message',function(msg){
-  displayMessage(msg)
-})
+  displayMessage(msg);
+});
 
+// 参加時に過去のメッセージを受け取る
 socketio.on('signin',function(msgs){
   for(let i=0;i<msgs.length;i++){
-    const msg = msgs[i]
-    displayMessage(msg)
+    const msg = msgs[i];
+    displayMessage(msg);
   }
-})
+});
 
 function displayMessage(msg){
   const li = document.createElement("li");
-  li.append(msg.msg + '(' +msg.name+ ')');
+  li.append(msg.msg + '(' + msg.name + ')');
   chats.append(li);
 }
