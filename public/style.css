@@ -11,6 +11,9 @@ h1 {
 form {
     display: flex;
 }
+#form {
+    display: none;
+}
 input,
 button
 {
