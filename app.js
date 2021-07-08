@@ -6,10 +6,19 @@ const PORT = 3000;
 
 app.use(express.static('public'));
 
+let messages = []
+
 io.on('connection',function(socket){
-    socket.on('message',function(msg){
-        io.emit('message', msg);
+    socket.on('signin',function(){
+        const id = socket.id
+        io.to(id).emit('signin', messages);
     });
+
+    socket.on('message',function(msg){
+        messages.push(msg)
+        messages=messages.slice(-100)
+        io.emit('messages',msg)
+    })
 });
 
 http.listen(PORT, function(){
