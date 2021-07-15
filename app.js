@@ -21,6 +21,7 @@ io.on('connection',function(socket){
         io.emit('message', msg);
     });
 
+    
 });
 
 http.listen(PORT, function(){
