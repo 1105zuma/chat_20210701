@@ -17,7 +17,7 @@ io.on('connection',function(socket){
     socket.on('message',function(msg){
         messages.push(msg);
         messages=messages.slice(-100);
-        io.emit('messages',msg);
+        io.emit('messages', msg);
     });
 });
 
